@@ -1,7 +1,7 @@
-options(digits = 2)
+options(digits = 4)
 
 if (!require("pacman")) install.packages("pacman")
-p_load(tidyverse, cowplot, readxl, writexl, meta, metafor)
+p_load(tidyverse, cowplot, readxl, meta, metafor, fasstr)
 
 sd_from_ci <- function(lower_ci_limit, upper_ci_limit, sample_size){
     round(sqrt(sample_size) * (upper_ci_limit - lower_ci_limit) / 3.92, 2)
@@ -26,26 +26,20 @@ model_meta <- metacont(
     sd.e = sd_auroc_grace_glucose, sd.c = sd_auroc_grace
 )
 
-pdf("figure-3.pdf", width = 12, height = 5)
-model_meta |>
-forest(
-    random = FALSE,
-    fixed = TRUE,
-    digits = 2,
-    digits.pval = 3,
-    digits.se = 2,
-    sortvar = TE,
-    print.tau2 = FALSE,
-    colgap.studlab = "7 mm",
-    colgap.forest = "7 mm",
-    label.e = "GRACE-Glucose",
-    label.c = "GRACE",
-    label.right = "Favours\nGRACE-Glucose\n",
-    label.left = "Favours\nGRACE\n",
-    smlab = "Mean Difference in AUROC",
-    test.overall = TRUE,
-    col.square = "#9C89B8",
-    col.square.lines = NA,
-    layout = "RevMan5"
-)
-dev.off()
+rma(
+    data = as.data.frame(model_meta),
+    yi = TE,
+    sei = seTE,
+    slab = studlab
+) |>
+leave1out() |>
+as.data.frame() |>
+transmute(
+    "Estudo" = model_meta$studlab,
+    "Diferença Média na ASCROC" = estimate,
+    "Erro Padrão" = se,
+    "P para Efeito Geral" = pval,
+    "P para Heterogeneidade" = Qp,
+    "I²" = I2
+) |>
+fasstr::write_results("tabela-s1-leave-one-out.xlsx", digits = 3)

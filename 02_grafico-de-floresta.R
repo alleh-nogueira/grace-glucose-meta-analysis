@@ -18,14 +18,16 @@ mutate(
     )
 )
 
-pdf("figura-3.pdf", width = 12, height = 5)
-metacont(
+model_meta <- metacont(
     data = auroc,
     studlab = study,
     n.e = n, n.c = n,
     mean.e = auroc_grace_glucose, mean.c = auroc_grace,
     sd.e = sd_auroc_grace_glucose, sd.c = sd_auroc_grace
-) |>
+)
+
+pdf("figura-3.pdf", width = 12, height = 5)
+model_meta |>
 forest(
     random = FALSE,
     fixed = TRUE,
