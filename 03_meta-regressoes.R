@@ -80,7 +80,7 @@ geom_smooth(method = "lm", se = FALSE, show.legend = FALSE, color = "#3B2E4D") +
 scale_color_gradient(low = "#9C89B8", high = "#6C548C") +
 annotate(
     "text",
-    label = "y = -0.03x + 0.03\nP = 0.51",
+    label = "y = -0.04x + 0.04\nP = 0.47",
     x = 0.75,
     y = 0.04
 ) +
@@ -145,7 +145,7 @@ geom_smooth(method = "lm", se = FALSE, show.legend = FALSE, color = "#3B2E4D") +
 scale_color_gradient(low = "#9C89B8", high = "#6C548C") +
 annotate(
     "text",
-    label = "y = 0x - 0.03\nP = 0.55",
+    label = "y = 0x - 0.03\nP = 0.52",
     x = 1500,
     y = 0.04
 ) +
