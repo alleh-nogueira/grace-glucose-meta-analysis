@@ -6,5 +6,5 @@ Please reproduce our results by running the following files: (Portuguese version
 - *Figure 2.* [Risk of bias in prognostic studies](01_risk-of-bias.R);
 - *Figure 3.* [Forest plot of mean difference in AUROC](02_forest-plot.R);
 - *Figure 4.* [Meta-regressions of AUROC according to risk of bias in studies and key baseline characteristics](03_meta-regressions.R);
-- *Figure S1.* [Contour-enhanced funnel plot for assessment of publication bias](04_funnel-plot.R).
-- *Table S1* [Leave-one-out meta-analysis of mean difference in AUROC](05_leave-one-out-analysis.R)
+- *Figure S1.* [Contour-enhanced funnel plot for assessment of publication bias](04_funnel-plot.R);
+- *Table S1* [Leave-one-out meta-analysis of mean difference in AUROC](05_leave-one-out-analysis.R).
