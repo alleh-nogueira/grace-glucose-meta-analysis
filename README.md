@@ -1,4 +1,4 @@
-# Incremental Value of Admission Blood Glucose on Top of the GRACE Risk Score: A Meta-Analysis
+# Added Value of Admission Blood Glucose on the GRACE Risk Score: A Meta-Analysis
 
 We provide the R code used in our meta-analysis evaluating the incremental value of blood glucose on top of the [GRACE score](https://pubmed.ncbi.nlm.nih.gov/17032691/) for prognostic risk prediction in patients with acute coronary syndrome.
 
